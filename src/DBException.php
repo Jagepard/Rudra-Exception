@@ -17,16 +17,19 @@ use Exception;
 
 class DBException extends Exception
 {
+
     /**
      * @param $exception
+     *
+     * @return bool
      */
     public function handler($exception)
     {
         if (DEV) {
-            !d($exception->getMessage());
-        } else {
-            Container::$app->set('router', new Router(Container::$app, Config::DEFAULT_NAMESPACE));
-            Container::$app->get('router')->directCall(Config::HTTP_ERRORS['503']);
+            return !d($exception->getMessage());
         }
+
+        Container::$app->set('router', new Router(Container::$app, Config::DEFAULT_NAMESPACE));
+        Container::$app->get('router')->directCall(Config::HTTP_ERRORS['503']);
     }
 }
