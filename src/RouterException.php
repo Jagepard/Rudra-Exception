@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 /**
  * Date: 10.02.17
  * Time: 18:45
@@ -11,20 +13,27 @@
 
 namespace Rudra;
 
-use App\Config\Config;
+
+use App\Config;
 use Exception;
 
+
+/**
+ * Class RouterException
+ *
+ * @package Rudra
+ */
 class RouterException extends Exception
 {
 
     /**
+     * @codeCoverageIgnore
      * @param $exception
      */
     public function handler($exception)
     {
         if ('404' == $exception->getMessage()) {
-            App::get('router')->directCall(Config::HTTP_ERRORS['404']);
+            Container::$app->get('router')->directCall(Config::HTTP_ERRORS['404']);
         }
     }
-
 }
