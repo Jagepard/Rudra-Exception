@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 /**
  * Date: 11.02.17
  * Time: 18:16
@@ -11,14 +13,21 @@
 
 namespace Rudra;
 
+
 use App\Config;
 use Exception;
 
 
+/**
+ * Class DBException
+ *
+ * @package Rudra
+ */
 class DBException extends Exception
 {
 
     /**
+     * @codeCoverageIgnore
      * @param $exception
      *
      * @return bool
