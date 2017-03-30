@@ -21,10 +21,12 @@
         "skype": "jagepard.ru"
     },
     "require"     : {
-        "php": ">=7.0"
+        "php": ">=7.0",
+        "rudra/container": "^1.0",
+        "rudra/router": "dev-master"
     },
     "require-dev" : {
-        "codeception/codeception": "*"
+        "satooshi/php-coveralls": "dev-master"
     },
     "autoload"    : {
         "psr-4": {
