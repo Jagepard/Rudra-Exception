@@ -32,5 +32,6 @@
         "psr-4": {
             "Rudra\\": "src/"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
