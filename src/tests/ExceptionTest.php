@@ -13,8 +13,6 @@ declare(strict_types = 1);
 
 
 use PHPUnit\Framework\TestCase as PHPUnit_Framework_TestCase;
-use Rudra\IContainer;
-use Rudra\Container;
 use Rudra\DBException;
 use Rudra\RouterException;
 
@@ -23,17 +21,6 @@ use Rudra\RouterException;
  */
 class ExceptionTest extends PHPUnit_Framework_TestCase
 {
-
-    /**
-     * @var IContainer
-     */
-    protected $container;
-
-    protected function setUp(): void
-    {
-        $this->container = Container::app();
-        $this->container->setBinding(IContainer::class, Container::$app);
-    }
 
     public function testDBException()
     {
