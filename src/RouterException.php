@@ -35,5 +35,9 @@ class RouterException extends Exception
         if ('404' == $exception->getMessage()) {
             Container::$app->get('router')->directCall(Config::HTTP_ERRORS['404']);
         }
+
+        if ('503' == $exception->getMessage()) {
+            Container::$app->get('router')->directCall(Config::HTTP_ERRORS['503']);
+        }
     }
 }
