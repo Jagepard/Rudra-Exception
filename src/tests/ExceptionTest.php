@@ -15,6 +15,7 @@ declare(strict_types = 1);
 use PHPUnit\Framework\TestCase as PHPUnit_Framework_TestCase;
 use Rudra\DBException;
 use Rudra\RouterException;
+use Rudra\AnnotationException;
 
 /**
  * Class ExceptionTest
@@ -32,5 +33,11 @@ class ExceptionTest extends PHPUnit_Framework_TestCase
     {
         $this->expectException(RouterException::class);
         throw new RouterException('404');
+    }
+
+    public function testAnnotationException()
+    {
+        $this->expectException(AnnotationException::class);
+        throw new AnnotationException('Ошибка парсинга аннотаций');
     }
 }
