@@ -38,7 +38,7 @@ class DBException extends Exception
             return !d($exception->getMessage());
         }
 
-        Container::$app->set('router', new Router(Container::$app, Config::DEFAULT_NAMESPACE));
-        Container::$app->get('router')->directCall(Config::HTTP_ERRORS['503']);
+        Container::$app->set('router', new Router(Container::$app, Container::$app->config('default.namespace')));
+        Container::$app->get('router')->directCall(Container::$app->config('http.errors', '503'));
     }
 }
