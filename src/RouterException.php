@@ -14,7 +14,6 @@ declare(strict_types = 1);
 namespace Rudra;
 
 
-use App\Config;
 use Exception;
 
 
@@ -33,11 +32,11 @@ class RouterException extends Exception
     public function handler($exception)
     {
         if ('404' == $exception->getMessage()) {
-            Container::$app->get('router')->directCall(Config::HTTP_ERRORS['404']);
+            Container::$app->get('router')->directCall(Container::$app->config('http.errors', '404'));
         }
 
         if ('503' == $exception->getMessage()) {
-            Container::$app->get('router')->directCall(Config::HTTP_ERRORS['503']);
+            Container::$app->get('router')->directCall(Container::$app->config('http.errors', '503'));
         }
     }
 }
