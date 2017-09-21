@@ -31,12 +31,7 @@ class RouterException extends Exception
      */
     public function handler($exception)
     {
-        if ('404' == $exception->getMessage()) {
-            Container::$app->get('router')->directCall(Container::$app->config('http.errors', '404'));
-        }
-
-        if ('503' == $exception->getMessage()) {
-            Container::$app->get('router')->directCall(Container::$app->config('http.errors', '503'));
-        }
+        Container::$app->get('debugbar')['exceptions']->addException($exception);
+        Container::$app->get('router')->directCall(Container::$app->config('http.errors', $exception->getMessage()));
     }
 }

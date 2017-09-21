@@ -33,6 +33,8 @@ class AnnotationException extends Exception
      */
     public function handler($exception)
     {
+        Container::$app->get('debugbar')['exceptions']->addException($exception);
+
         if (DEV) {
             return !d($exception->getMessage());
         }
