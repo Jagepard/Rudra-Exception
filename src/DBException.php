@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /**
  * Date: 11.02.17
@@ -14,7 +14,6 @@ declare(strict_types = 1);
 namespace Rudra;
 
 
-use App\Config;
 use Exception;
 
 
@@ -26,21 +25,27 @@ use Exception;
 class DBException extends Exception
 {
 
+    use SetContainerTrait;
+
     /**
-     * @codeCoverageIgnore
+     * DBException constructor.
+     * @param ContainerInterface $container
+     * @param string             $message
+     * @param int                $code
+     * @param Exception|null     $previous
+     */
+    public function __construct(ContainerInterface $container, $message = "", $code = 0, Exception $previous = null)
+    {
+        $this->container = $container;
+        parent::__construct($message, $code, $previous);
+    }
+
+    /**
      * @param $exception
-     *
-     * @return bool
      */
     public function handler($exception)
     {
-        Container::$app->get('debugbar')['exceptions']->addException($exception);
-
-        if (DEV) {
-            return !d($exception->getMessage());
-        }
-
-        Container::$app->set('router', new Router(Container::$app, Container::$app->config('default.namespace')));
-        Container::$app->get('router')->directCall(Container::$app->config('http.errors', '503'));
+        $this->container()->get('debugbar')['exceptions']->addException($exception);
+        $this->container()->get('router')->directCall($this->container()->config('http.errors', '503'));
     }
 }
