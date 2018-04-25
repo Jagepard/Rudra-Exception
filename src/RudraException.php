@@ -25,7 +25,7 @@ class RudraException extends Exception
     use SetContainerTrait;
 
     /**
-     * DBException constructor.
+     * RudraException constructor.
      * @param ContainerInterface $container
      * @param string             $message
      * @param int                $code
