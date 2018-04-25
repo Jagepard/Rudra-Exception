@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /**
- * Date: 10.02.17
+ * Date: 10.02.17 Updated 25.04.18
  * Time: 18:45
  *
  * @author    : Korotkov Danila <dankorot@gmail.com>
@@ -14,31 +14,12 @@ declare(strict_types = 1);
 namespace Rudra;
 
 
-use Exception;
-
-
 /**
  * Class RouterException
- *
  * @package Rudra
  */
-class RouterException extends Exception
+class RouterException extends RudraException
 {
-
-    use SetContainerTrait;
-
-    /**
-     * DBException constructor.
-     * @param ContainerInterface $container
-     * @param string             $message
-     * @param int                $code
-     * @param Exception|null     $previous
-     */
-    public function __construct(ContainerInterface $container, $message = "", $code = 0, Exception $previous = null)
-    {
-        $this->container = $container;
-        parent::__construct($message, $code, $previous);
-    }
 
     /**
      * @param $exception
