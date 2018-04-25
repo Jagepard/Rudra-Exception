@@ -25,13 +25,27 @@ use Exception;
 class RouterException extends Exception
 {
 
+    use SetContainerTrait;
+
     /**
-     * @codeCoverageIgnore
+     * DBException constructor.
+     * @param ContainerInterface $container
+     * @param string             $message
+     * @param int                $code
+     * @param Exception|null     $previous
+     */
+    public function __construct(ContainerInterface $container, $message = "", $code = 0, Exception $previous = null)
+    {
+        $this->container = $container;
+        parent::__construct($message, $code, $previous);
+    }
+
+    /**
      * @param $exception
      */
     public function handler($exception)
     {
-        Container::$app->get('debugbar')['exceptions']->addException($exception);
-        Container::$app->get('router')->directCall(Container::$app->config('http.errors', $exception->getMessage()));
+        $this->container()->get('debugbar')['exceptions']->addException($exception);
+        $this->container()->get('router')->directCall($this->container()->config('http.errors', $exception->getMessage()));
     }
 }
