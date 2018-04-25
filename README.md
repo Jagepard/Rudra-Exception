@@ -7,5 +7,4 @@
 [![Total Downloads](https://poser.pugx.org/rudra/exception/downloads)](https://packagist.org/packages/rudra/exception)
 [![License](https://poser.pugx.org/rudra/exception/license)](https://packagist.org/packages/rudra/exception)
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/bf5d5dcd-bded-4936-a15a-41d6856bb623/big.png)](https://insight.sensiolabs.com/projects/bf5d5dcd-bded-4936-a15a-41d6856bb623)
 # Rudra-Exception
