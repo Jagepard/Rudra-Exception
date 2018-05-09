@@ -3,17 +3,15 @@
 declare(strict_types=1);
 
 /**
- * Date: 25.04.18
- * Time: 13:55
- *
  * @author    : Korotkov Danila <dankorot@gmail.com>
  * @copyright Copyright (c) 2018, Korotkov Danila
  * @license   http://www.gnu.org/licenses/gpl.html GNU GPLv3.0
  */
 
-namespace Rudra;
+namespace Rudra\Exceptions;
 
 use Exception;
+use Rudra\Interfaces\ContainerInterface;
 
 /**
  * Class RudraException
@@ -22,7 +20,7 @@ use Exception;
 class RudraException extends Exception
 {
 
-    use SetContainerTrait;
+    protected $container;
 
     /**
      * RudraException constructor.
@@ -42,7 +40,7 @@ class RudraException extends Exception
      */
     public function handler($exception)
     {
-        $this->container()->get('debugbar')['exceptions']->addException($exception);
-        $this->container()->get('router')->directCall($this->container()->config('http.errors', '503'));
+        $this->container->get('debugbar')['exceptions']->addException($exception);
+        $this->container->get('router')->directCall($this->container->config('http.errors', '503'));
     }
 }

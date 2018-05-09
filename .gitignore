@@ -4,4 +4,4 @@
 /nbproject/
 /vendor/
 /composer.lock
-/src/tests/build/
+/tests/build/
