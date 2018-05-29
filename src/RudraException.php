@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Rudra\Exceptions;
 
 use Exception;
-use Rudra\ContainerInterface;
+use Rudra\Interfaces\ContainerInterface;
 
 /**
  * Class RudraException
