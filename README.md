@@ -8,4 +8,4 @@
 [![Total Downloads](https://poser.pugx.org/rudra/exception/downloads)](https://packagist.org/packages/rudra/exception)
 [![License](https://poser.pugx.org/rudra/exception/license)](https://packagist.org/packages/rudra/exception)
 
-# Rudra-Exception
+# Rudra-Exception | [API](https://github.com/Jagepard/Rudra-Exception/blob/master/docs.md "Documentation API")
