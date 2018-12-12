@@ -41,7 +41,7 @@ class RudraException extends Exception
     public function handler($exception)
     {
         if ($this->container->config('env') == 'development') {
-            dd($exception);
+            throw $exception;
         }
 
         $this->container->get('debugbar')['exceptions']->addException($exception);
