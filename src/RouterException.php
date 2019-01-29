@@ -22,11 +22,11 @@ class RouterException extends RudraException
      */
     public function handler($exception)
     {
-        if ($this->container->config('env') == 'development') {
+        if ($this->container()->config('env') == 'development') {
             throw $exception;
         }
 
-        $this->container->get('debugbar')['exceptions']->addException($exception);
-        $this->container->get('router')->directCall($this->container->config('http.errors', $exception->getMessage()));
+        $this->container()->get('debugbar')['exceptions']->addException($exception);
+        $this->container()->get('router')->directCall($this->container()->config('http.errors', $exception->getMessage()));
     }
 }
