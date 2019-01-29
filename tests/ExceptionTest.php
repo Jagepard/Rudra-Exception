@@ -8,7 +8,6 @@ declare(strict_types=1);
  * @license   http://www.gnu.org/licenses/gpl.html GNU GPLv3.0
  */
 
-use Rudra\Container;
 use Rudra\Exceptions\DBException;
 use Rudra\Exceptions\RouterException;
 use Rudra\Exceptions\AnnotationException;
@@ -28,18 +27,18 @@ class RudraExceptionTest extends PHPUnit_Framework_TestCase
     public function testDBException()
     {
         $this->expectException(DBException::class);
-        throw new DBException(Container::app(), 'Не выбран способ работы с данными БД');
+        throw new DBException(rudra(), 'Не выбран способ работы с данными БД');
     }
 
     public function testRouterException()
     {
         $this->expectException(RouterException::class);
-        throw new RouterException(Container::app(), '404');
+        throw new RouterException(rudra(), '404');
     }
 
     public function testAnnotationException()
     {
         $this->expectException(AnnotationException::class);
-        throw new AnnotationException(Container::app(), 'Ошибка парсинга аннотаций');
+        throw new AnnotationException(rudra(), 'Ошибка парсинга аннотаций');
     }
 }
