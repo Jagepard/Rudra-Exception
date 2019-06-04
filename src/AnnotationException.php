@@ -8,10 +8,6 @@
 
 namespace Rudra\Exceptions;
 
-/**
- * Class AnnotationException
- * @package Rudra
- */
 class AnnotationException extends RudraException
 {
 

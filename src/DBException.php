@@ -8,10 +8,6 @@
 
 namespace Rudra\Exceptions;
 
-/**
- * Class DBException
- * @package Rudra
- */
 class DBException extends RudraException
 {
 
