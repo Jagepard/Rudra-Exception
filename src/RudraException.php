@@ -1,37 +1,29 @@
 <?php
 
-declare(strict_types=1);
-
 /**
- * @author    : Korotkov Danila <dankorot@gmail.com>
- * @copyright Copyright (c) 2018, Korotkov Danila
- * @license   http://www.gnu.org/licenses/gpl.html GNU GPLv3.0
+ * @author    : Jagepard <jagepard@yandex.ru">
+ * @copyright Copyright (c) 2019, Jagepard
+ * @license   https://mit-license.org/ MIT
  */
 
 namespace Rudra\Exceptions;
 
 use Exception;
-use Rudra\Interfaces\ContainerInterface;
 
-/**
- * Class RudraException
- * @package Rudra
- */
 class RudraException extends Exception
 {
-
-    protected $container;
+    protected $standalone;
 
     /**
      * RudraException constructor.
-     * @param ContainerInterface $container
-     * @param string             $message
-     * @param int                $code
-     * @param Exception|null     $previous
+     * @param string         $message
+     * @param bool           $standalone
+     * @param int            $code
+     * @param Exception|null $previous
      */
-    public function __construct(ContainerInterface $container, $message = "", $code = 0, Exception $previous = null)
+    public function __construct($message = "", bool $standalone = true, $code = 0, Exception $previous = null)
     {
-        $this->container = $container;
+        $this->standalone = $standalone;
         parent::__construct($message, $code, $previous);
     }
 
@@ -40,19 +32,11 @@ class RudraException extends Exception
      */
     public function handler($exception)
     {
-        if ($this->container()->config('env') == 'development') {
+        if ($this->standalone && (config('env') !== 'development')) {
             throw $exception;
         }
 
-        $this->container()->get('debugbar')['exceptions']->addException($exception);
-        $this->container()->get('router')->directCall($this->container()->config('http.errors', '503'));
-    }
-
-    /**
-     * @return ContainerInterface
-     */
-    public function container(): ContainerInterface
-    {
-        return $this->container;
+        rudra()->get('debugbar')['exceptions']->addException($exception);
+        rudra()->get('router')->directCall(config('http.errors', '503'));
     }
 }

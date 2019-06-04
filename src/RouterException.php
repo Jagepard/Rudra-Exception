@@ -1,32 +1,25 @@
 <?php
 
-declare(strict_types=1);
-
 /**
- * @author    : Korotkov Danila <dankorot@gmail.com>
- * @copyright Copyright (c) 2018, Korotkov Danila
- * @license   http://www.gnu.org/licenses/gpl.html GNU GPLv3.0
+ * @author    : Jagepard <jagepard@yandex.ru">
+ * @copyright Copyright (c) 2019, Jagepard
+ * @license   https://mit-license.org/ MIT
  */
 
 namespace Rudra\Exceptions;
 
-/**
- * Class RouterException
- * @package Rudra
- */
 class RouterException extends RudraException
 {
-
     /**
      * @param $exception
      */
     public function handler($exception)
     {
-        if ($this->container()->config('env') == 'development') {
+        if ($this->standalone && (config('env') !== 'development')) {
             throw $exception;
         }
 
-        $this->container()->get('debugbar')['exceptions']->addException($exception);
-        $this->container()->get('router')->directCall($this->container()->config('http.errors', $exception->getMessage()));
+        rudra()->get('debugbar')['exceptions']->addException($exception);
+        rudra()->get('router')->directCall(config('http.errors', $exception->getMessage()));
     }
 }
