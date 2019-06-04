@@ -8,8 +8,6 @@
 <hr /><a id="class-rudraexceptionsrouterexception"></a>
 ### Class: \Rudra\Exceptions\RouterException
 
-> Class RouterException
-
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>handler(</strong><em>mixed</em> <strong>$exception</strong>)</strong> : <em>void</em> |
@@ -21,8 +19,6 @@
 <hr /><a id="class-rudraexceptionsannotationexception"></a>
 ### Class: \Rudra\Exceptions\AnnotationException
 
-> Class AnnotationException
-
 | Visibility | Function |
 |:-----------|:---------|
 
@@ -32,8 +28,6 @@
 
 <hr /><a id="class-rudraexceptionsdbexception"></a>
 ### Class: \Rudra\Exceptions\DBException
-
-> Class DBException
 
 | Visibility | Function |
 |:-----------|:---------|
@@ -45,11 +39,9 @@
 <hr /><a id="class-rudraexceptionsrudraexception"></a>
 ### Class: \Rudra\Exceptions\RudraException
 
-> Class RudraException
-
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>__construct(</strong><em>\Rudra\Interfaces\ContainerInterface</em> <strong>$container</strong>, <em>string</em> <strong>$message=`''`</strong>, <em>int</em> <strong>$code</strong>, <em>\Rudra\Exceptions\Exception/null/[\Exception](http://php.net/manual/en/class.exception.php)</em> <strong>$previous=null</strong>)</strong> : <em>void</em><br /><em>RudraException constructor.</em> |
+| public | <strong>__construct(</strong><em>string</em> <strong>$message=`''`</strong>, <em>\boolean</em> <strong>$standalone=true</strong>, <em>int</em> <strong>$code</strong>, <em>\Rudra\Exceptions\Exception/null/[\Exception](http://php.net/manual/en/class.exception.php)</em> <strong>$previous=null</strong>)</strong> : <em>void</em><br /><em>RudraException constructor.</em> |
 | public | <strong>handler(</strong><em>mixed</em> <strong>$exception</strong>)</strong> : <em>void</em> |
 
 *This class extends \Exception*
