@@ -30,10 +30,8 @@ class RudraException extends Exception
     {
         if (function_exists('config')) {
             if (config('env') !== 'development') {
-                if (function_exists('rudra')) {
-                    rudra()->get('debugbar')['exceptions']->addException($exception);
-                    rudra()->get('router')->directCall(config('http.errors', '503'));
-                }
+                rudra()->get('debugbar')['exceptions']->addException($exception);
+                rudra()->get('router')->directCall(config('http.errors', '503'));
             }
         }
 

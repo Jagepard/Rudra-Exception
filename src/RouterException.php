@@ -17,10 +17,8 @@ class RouterException extends RudraException
     {
         if (function_exists('config')) {
             if (config('env') !== 'development') {
-                if (function_exists('rudra')) {
-                    rudra()->get('debugbar')['exceptions']->addException($exception);
-                    rudra()->get('router')->directCall(config('http.errors', $exception->getMessage()));
-                }
+                rudra()->get('debugbar')['exceptions']->addException($exception);
+                rudra()->get('router')->directCall(config('http.errors', $exception->getMessage()));
             }
         }
 
