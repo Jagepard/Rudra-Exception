@@ -9,5 +9,3 @@
 [![License](https://poser.pugx.org/rudra/exception/license)](https://packagist.org/packages/rudra/exception)
 
 # Rudra-Exception | [API](https://github.com/Jagepard/Rudra-Exception/blob/master/docs.md "Documentation API")
-
-![Rudra-Exception](https://github.com/Jagepard/Rudra-Exception/blob/master/UML.png)
