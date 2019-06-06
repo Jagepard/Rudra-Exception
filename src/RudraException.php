@@ -12,18 +12,14 @@ use Exception;
 
 class RudraException extends Exception
 {
-    protected $standalone;
-
     /**
      * RudraException constructor.
      * @param string         $message
-     * @param bool           $standalone
      * @param int            $code
      * @param Exception|null $previous
      */
-    public function __construct($message = "", bool $standalone = true, $code = 0, Exception $previous = null)
+    public function __construct($message = "", $code = 0, Exception $previous = null)
     {
-        $this->standalone = $standalone;
         parent::__construct($message, $code, $previous);
     }
 
@@ -33,16 +29,14 @@ class RudraException extends Exception
     public function handler($exception)
     {
         if (function_exists('config')) {
-            $this->standalone = (config('env') === 'development');
+            if (config('env') !== 'development') {
+                if (function_exists('rudra')) {
+                    rudra()->get('debugbar')['exceptions']->addException($exception);
+                    rudra()->get('router')->directCall(config('http.errors', '503'));
+                }
+            }
         }
 
-        if ($this->standalone) {
-            throw $exception;
-        }
-
-        if (function_exists('rudra')) {
-            rudra()->get('debugbar')['exceptions']->addException($exception);
-            rudra()->get('router')->directCall(config('http.errors', '503'));
-        }
+        throw $exception;
     }
 }

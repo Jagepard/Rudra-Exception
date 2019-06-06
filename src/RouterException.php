@@ -16,16 +16,14 @@ class RouterException extends RudraException
     public function handler($exception)
     {
         if (function_exists('config')) {
-            $this->standalone = (config('env') === 'development');
+            if (config('env') !== 'development') {
+                if (function_exists('rudra')) {
+                    rudra()->get('debugbar')['exceptions']->addException($exception);
+                    rudra()->get('router')->directCall(config('http.errors', $exception->getMessage()));
+                }
+            }
         }
 
-        if ($this->standalone) {
-            throw $exception;
-        }
-
-        if (function_exists('rudra')) {
-            rudra()->get('debugbar')['exceptions']->addException($exception);
-            rudra()->get('router')->directCall(config('http.errors', $exception->getMessage()));
-        }
+        throw $exception;
     }
 }
