@@ -2,37 +2,26 @@
 
 /**
  * @author    : Jagepard <jagepard@yandex.ru">
- * @copyright Copyright (c) 2019, Jagepard
  * @license   https://mit-license.org/ MIT
  */
 
 namespace Rudra\Exceptions;
 
 use Exception;
+use Rudra\Container\Application;
 
 class RudraException extends Exception
 {
-    /**
-     * RudraException constructor.
-     * @param string         $message
-     * @param int            $code
-     * @param Exception|null $previous
-     */
     public function __construct($message = "", $code = 0, Exception $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }
 
-    /**
-     * @param $exception
-     */
-    public function handler($exception)
+    public function handler(Exception $exception)
     {
-        if (function_exists('config')) {
-            if (config('env') !== 'development') {
-                rudra()->get('debugbar')['exceptions']->addException($exception);
-                rudra()->get('router')->directCall(config('http.errors', '503'));
-            }
+        if (Application::run()->config()->get("environment") !== "development") {
+            Application::run()->objects()->get("router")
+                ->directCall(Application::run()->config()->get("http.errors")["503"]);
         }
 
         throw $exception;
