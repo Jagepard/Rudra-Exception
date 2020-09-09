@@ -15,7 +15,7 @@ class RouterException extends RudraException
     public function handler(Exception $exception)
     {
         if (Application::run()->config()->get("environment") !== "development") {
-            Application::run()->objects()->get('router')
+            Application::run()->objects()->get("router")
                 ->directCall(Application::run()->config()->get("http.errors")[$exception->getMessage()]);
         }
 
