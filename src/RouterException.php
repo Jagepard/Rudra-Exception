@@ -8,15 +8,15 @@
 namespace Rudra\Exceptions;
 
 use Exception;
-use Rudra\Container\Rudra;
+use Rudra\Container\Facades\Rudra as Rudra;
 
 class RouterException extends RudraException
 {
-    public function handler(Exception $exception)
+    public function handler(/*Exception*/ $exception)
     {
-        if (Rudra::run()->config()->get("environment") !== "development") {
-            Rudra::run()->objects()->get("router")
-                ->directCall(Rudra::run()->config()->get("http.errors")[$exception->getMessage()]);
+        if (Rudra::config()->get("environment") !== "development") {
+            Rudra::get("router")
+                ->directCall(Rudra::config()->get("http.errors")[$exception->getMessage()]);
         }
 
         throw $exception;
