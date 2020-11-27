@@ -8,7 +8,7 @@
 namespace Rudra\Exceptions;
 
 use Exception;
-use Rudra\Container\Application;
+use Rudra\Container\Rudra;
 
 class RudraException extends Exception
 {
@@ -19,9 +19,9 @@ class RudraException extends Exception
 
     public function handler(Exception $exception)
     {
-        if (Application::run()->config()->get("environment") !== "development") {
-            Application::run()->objects()->get("router")
-                ->directCall(Application::run()->config()->get("http.errors")["503"]);
+        if (Rudra::run()->config()->get("environment") !== "development") {
+            Rudra::run()->objects()->get("router")
+                ->directCall(Rudra::run()->config()->get("http.errors")["503"]);
         }
 
         throw $exception;
