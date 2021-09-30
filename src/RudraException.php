@@ -21,6 +21,6 @@ class RudraException extends Exception
 
     public function exception_handler($exception)
     {
-        Router::directCall([0, 0, Rudra::config()->get("http.errors")[$exception->getMessage()]]);
+        Router::directCall([null, null, Rudra::config()->get("http.errors")[$exception->getMessage()]]);
     }
 }
