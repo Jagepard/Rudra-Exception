@@ -22,8 +22,7 @@
     },
     "require"           : {
         "php"               : ">=7.4",
-        "rudra/container"   : "self.version",
-        "rudra/router"      : "self.version"
+        "rudra/container"   : "self.version"
     },
     "autoload"          : {
         "psr-4" : {
