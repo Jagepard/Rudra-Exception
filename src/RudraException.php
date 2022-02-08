@@ -10,6 +10,7 @@ namespace Rudra\Exceptions;
 use Exception;
 use Rudra\Container\Facades\Rudra as Rudra;
 use Rudra\Router\RouterFacade as Router;
+use Rudra\Redirect\RedirectFacade as Redirect;
 
 class RudraException extends Exception
 {
@@ -21,6 +22,7 @@ class RudraException extends Exception
 
     public function exception_handler($exception)
     {
+        Redirect::responseCode('404');
         Router::directCall([null, null, Rudra::config()->get("http.errors")[$exception->getMessage()]]);
     }
 }
