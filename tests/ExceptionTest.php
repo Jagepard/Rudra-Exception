@@ -9,7 +9,7 @@ use Rudra\Exceptions\DBException;
 use Rudra\Exceptions\RouterException;
 use PHPUnit\Framework\TestCase as PHPUnit_Framework_TestCase;
 
-class RudraExceptionTest extends PHPUnit_Framework_TestCase
+class ExceptionTest extends PHPUnit_Framework_TestCase
 {
     public function testDBException()
     {

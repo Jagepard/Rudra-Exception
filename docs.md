@@ -1,50 +1,70 @@
 ## Table of contents
+- [Rudra\Exceptions\DBException](#rudra_exceptions_dbexception)
+- [Rudra\Exceptions\RouterException](#rudra_exceptions_routerexception)
+- [Rudra\Exceptions\RudraException](#rudra_exceptions_rudraexception)
+<hr>
 
-- [\Rudra\Exceptions\RouterException](#class-rudraexceptionsrouterexception)
-- [\Rudra\Exceptions\AnnotationException](#class-rudraexceptionsannotationexception)
-- [\Rudra\Exceptions\DBException](#class-rudraexceptionsdbexception)
-- [\Rudra\Exceptions\RudraException](#class-rudraexceptionsrudraexception)
+<a id="rudra_exceptions_dbexception"></a>
 
-<hr /><a id="class-rudraexceptionsrouterexception"></a>
-### Class: \Rudra\Exceptions\RouterException
-
+### Class: Rudra\Exceptions\DBException
+##### extends [Rudra\Exceptions\RudraException](#rudra_exceptions_rudraexception)
+##### implements [Stringable](#stringable)
+##### implements [Throwable](#throwable)
 | Visibility | Function |
 |:-----------|:---------|
-| public | <strong>handler(</strong><em>mixed</em> <strong>$exception</strong>)</strong> : <em>void</em> |
+|public|<em><strong>__construct</strong>(  $message   $code  ?Exception $previous )</em><br>Sets a userdefined exception handler function <br>Задаёт пользовательский обработчик исключений |
+|public|<em><strong>exception_handler</strong>(  $exception )</em><br>Userdefined exception handler function <br>Пользовательский обработчик исключений |
+|public|<em><strong>__wakeup</strong>()</em><br>|
+|final public|<em><strong>getMessage</strong>(): string</em><br>|
+|final public|<em><strong>getCode</strong>()</em><br>|
+|final public|<em><strong>getFile</strong>(): string</em><br>|
+|final public|<em><strong>getLine</strong>(): int</em><br>|
+|final public|<em><strong>getTrace</strong>(): array</em><br>|
+|final public|<em><strong>getPrevious</strong>(): ?Throwable</em><br>|
+|final public|<em><strong>getTraceAsString</strong>(): string</em><br>|
+|public|<em><strong>__toString</strong>(): string</em><br>|
 
-*This class extends [\Rudra\Exceptions\RudraException](#class-rudraexceptionsrudraexception)*
 
-*This class implements \Throwable*
+<a id="rudra_exceptions_routerexception"></a>
 
-<hr /><a id="class-rudraexceptionsannotationexception"></a>
-### Class: \Rudra\Exceptions\AnnotationException
-
+### Class: Rudra\Exceptions\RouterException
+##### extends [Rudra\Exceptions\RudraException](#rudra_exceptions_rudraexception)
+##### implements [Stringable](#stringable)
+##### implements [Throwable](#throwable)
 | Visibility | Function |
 |:-----------|:---------|
+|public|<em><strong>__construct</strong>(  $message   $code  ?Exception $previous )</em><br>Sets a userdefined exception handler function <br>Задаёт пользовательский обработчик исключений |
+|public|<em><strong>exception_handler</strong>(  $exception )</em><br>Userdefined exception handler function <br>Пользовательский обработчик исключений |
+|public|<em><strong>__wakeup</strong>()</em><br>|
+|final public|<em><strong>getMessage</strong>(): string</em><br>|
+|final public|<em><strong>getCode</strong>()</em><br>|
+|final public|<em><strong>getFile</strong>(): string</em><br>|
+|final public|<em><strong>getLine</strong>(): int</em><br>|
+|final public|<em><strong>getTrace</strong>(): array</em><br>|
+|final public|<em><strong>getPrevious</strong>(): ?Throwable</em><br>|
+|final public|<em><strong>getTraceAsString</strong>(): string</em><br>|
+|public|<em><strong>__toString</strong>(): string</em><br>|
 
-*This class extends [\Rudra\Exceptions\RudraException](#class-rudraexceptionsrudraexception)*
 
-*This class implements \Throwable*
+<a id="rudra_exceptions_rudraexception"></a>
 
-<hr /><a id="class-rudraexceptionsdbexception"></a>
-### Class: \Rudra\Exceptions\DBException
-
+### Class: Rudra\Exceptions\RudraException
+##### extends [Exception](#exception)
+##### implements [Throwable](#throwable)
+##### implements [Stringable](#stringable)
 | Visibility | Function |
 |:-----------|:---------|
+|public|<em><strong>__construct</strong>(  $message   $code  ?Exception $previous )</em><br>Sets a userdefined exception handler function <br>Задаёт пользовательский обработчик исключений |
+|public|<em><strong>exception_handler</strong>(  $exception )</em><br>Userdefined exception handler function <br>Пользовательский обработчик исключений |
+|public|<em><strong>__wakeup</strong>()</em><br>|
+|final public|<em><strong>getMessage</strong>(): string</em><br>|
+|final public|<em><strong>getCode</strong>()</em><br>|
+|final public|<em><strong>getFile</strong>(): string</em><br>|
+|final public|<em><strong>getLine</strong>(): int</em><br>|
+|final public|<em><strong>getTrace</strong>(): array</em><br>|
+|final public|<em><strong>getPrevious</strong>(): ?Throwable</em><br>|
+|final public|<em><strong>getTraceAsString</strong>(): string</em><br>|
+|public|<em><strong>__toString</strong>(): string</em><br>|
+<hr>
 
-*This class extends [\Rudra\Exceptions\RudraException](#class-rudraexceptionsrudraexception)*
-
-*This class implements \Throwable*
-
-<hr /><a id="class-rudraexceptionsrudraexception"></a>
-### Class: \Rudra\Exceptions\RudraException
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>string</em> <strong>$message=`''`</strong>, <em>\boolean</em> <strong>$standalone=true</strong>, <em>int</em> <strong>$code</strong>, <em>\Rudra\Exceptions\Exception/null/[\Exception](http://php.net/manual/en/class.exception.php)</em> <strong>$previous=null</strong>)</strong> : <em>void</em><br /><em>RudraException constructor.</em> |
-| public | <strong>handler(</strong><em>mixed</em> <strong>$exception</strong>)</strong> : <em>void</em> |
-
-*This class extends \Exception*
-
-*This class implements \Throwable*
-
+###### created with [Rudra-Documentation-Collector](#https://github.com/Jagepard/Rudra-Documentation-Collector)
