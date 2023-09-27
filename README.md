@@ -1,4 +1,4 @@
-
+[![PHPunit](https://github.com/Jagepard/Rudra-Exception/actions/workflows/php.yml/badge.svg)](https://github.com/Jagepard/Rudra-Exception/actions/workflows/php.yml)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Jagepard/Rudra-Exception/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Jagepard/Rudra-Exception/?branch=master)
 [![Code Climate](https://codeclimate.com/github/Jagepard/Rudra-Exception/badges/gpa.svg)](https://codeclimate.com/github/Jagepard/Rudra-Exception)
 -----
