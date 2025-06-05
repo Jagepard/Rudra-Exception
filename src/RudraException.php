@@ -10,34 +10,5 @@ declare(strict_types=1);
 namespace Rudra\Exceptions;
 
 use Exception;
-use Rudra\Container\Facades\Rudra as Rudra;
-use Rudra\Router\RouterFacade as Router;
-use Rudra\Redirect\RedirectFacade as Redirect;
 
-class RudraException extends Exception
-{
-    /**
-     * Sets a user-defined exception handler function 
-     *
-     * @param  string         $message
-     * @param  integer        $code
-     * @param  Exception|null $previous
-     */
-    public function __construct($message = "", $code = 0, Exception $previous = null)
-    {
-        parent::__construct($message, $code, $previous);
-        @set_exception_handler([$this, 'exception_handler']);
-    }
-
-    /**
-     * User-defined exception handler function 
-     *
-     * @param  $exception
-     * @return void
-     */
-    public function exception_handler($exception)
-    {
-        Redirect::responseCode($exception->getMessage());
-        Router::directCall(Rudra::config()->get("http.errors")[$exception->getMessage()]);
-    }
-}
+class RudraException extends Exception {}
