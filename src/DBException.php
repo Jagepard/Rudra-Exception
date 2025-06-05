@@ -7,6 +7,9 @@
 
 namespace Rudra\Exceptions;
 
+/**
+ * @deprecated
+ */
 class DBException extends RudraException
 {
 }

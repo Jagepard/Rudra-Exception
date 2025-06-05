@@ -1,0 +1,1 @@
+{"version":1,"defects":{"ExceptionTest::testDBException":5,"ExceptionTest::testRouterException":5},"times":{"ExceptionTest::testDBException":0.001,"ExceptionTest::testRouterException":0.001}}
