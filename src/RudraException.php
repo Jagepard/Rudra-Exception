@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * @author    : Jagepard <jagepard@yandex.ru">
- * @license   https://mit-license.org/ MIT
+ * @author  : Jagepard <jagepard@yandex.ru">
+ * @license https://mit-license.org/ MIT
  */
 
 namespace Rudra\Exceptions;
@@ -16,8 +18,6 @@ class RudraException extends Exception
 {
     /**
      * Sets a user-defined exception handler function 
-     * ----------------------------------------------
-     * Задаёт пользовательский обработчик исключений 
      *
      * @param  string         $message
      * @param  integer        $code
@@ -31,8 +31,6 @@ class RudraException extends Exception
 
     /**
      * User-defined exception handler function 
-     * ---------------------------------------
-     * Пользовательский обработчик исключений 
      *
      * @param  $exception
      * @return void
