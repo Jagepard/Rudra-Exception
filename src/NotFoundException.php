@@ -9,4 +9,4 @@ declare(strict_types=1);
 
 namespace Rudra\Exceptions;
 
-class RegistryException extends RudraException {}
+class NotFoundException extends RudraException {}
