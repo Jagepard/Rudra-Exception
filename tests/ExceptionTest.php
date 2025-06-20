@@ -78,4 +78,10 @@ class ExceptionTest extends TestCase
         $this->expectException(RudraException::class);
         throw new RudraException("Some message");
     }
+
+    public function testRuntimeException()
+    {
+        $this->expectException(RuntimeException::class);
+        throw new RuntimeException("Some message");
+    }
 }
