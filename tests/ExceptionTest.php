@@ -7,16 +7,19 @@ declare(strict_types=1);
  * @license https://mit-license.org/ MIT
  */
 
+use Rudra\Exceptions\{
+    DBException, 
+    LogicException, 
+    RudraException, 
+    RouterException, 
+    RequestException, 
+    DatabaseException, 
+    NotFoundException, 
+    MiddlewareException, 
+    EnvironmentException, 
+    ConfigurationException
+};
 use PHPUnit\Framework\TestCase;
-use Rudra\Exceptions\DBException;
-use Rudra\Exceptions\LogicException;
-use Rudra\Exceptions\RudraException;
-use Rudra\Exceptions\RouterException;
-use Rudra\Exceptions\RequestException;
-use Rudra\Exceptions\DatabaseException;
-use Rudra\Exceptions\NotFoundException;
-use Rudra\Exceptions\EnvironmentException;
-use Rudra\Exceptions\ConfigurationException;
 
 class ExceptionTest extends TestCase
 {
@@ -83,5 +86,11 @@ class ExceptionTest extends TestCase
     {
         $this->expectException(RuntimeException::class);
         throw new RuntimeException("Some message");
+    }
+
+    public function testMiddlewareException()
+    {
+        $this->expectException(MiddlewareException::class);
+        throw new MiddlewareException("Some message");
     }
 }
