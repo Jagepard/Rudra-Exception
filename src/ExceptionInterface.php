@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
+namespace Rudra\Exceptions;
+
 /**
- * ExceptionInterface
- * ==================
- *
  * A marker interface used to tag all custom exceptions within the Rudra framework.
  *
  * This empty interface serves as a common base for grouping and filtering exceptions,
@@ -24,14 +23,7 @@ declare(strict_types=1);
  *     // Handle any Rudra-related exception uniformly
  * }
  * ```
- *
- * @package Rudra\Exceptions
- * @see \Rudra\Exceptions\MiddlewareException
- * @see \Rudra\Exceptions\RouterException
- * ----------------------------------------------------------------------------
- * ExceptionInterface
- * ==================
- *
+ * ---------------------
  * Маркерный интерфейс, используемый для группировки всех пользовательских исключений в фреймворке Rudra.
  *
  * Этот пустой интерфейс служит общей точкой отсчёта для группировки и фильтрации исключений,
@@ -50,14 +42,7 @@ declare(strict_types=1);
  *     // Единым образом обрабатываем все исключения из Rudra
  * }
  * ```
- *
- * @package Rudra\Exceptions
- * @see \Rudra\Exceptions\MiddlewareException
- * @see \Rudra\Exceptions\RouterException
  */
-
-namespace Rudra\Exceptions;
-
 interface ExceptionInterface
 {
     // Пустой интерфейс — используется только как маркер для пользовательских исключений
