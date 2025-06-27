@@ -8,16 +8,12 @@ declare(strict_types=1);
  */
 
 use Rudra\Exceptions\{
-    DBException, 
     LogicException, 
     RudraException, 
-    RouterException, 
-    RequestException, 
-    DatabaseException, 
+    RouterException,
+    RuntimeException, 
     NotFoundException, 
     MiddlewareException, 
-    EnvironmentException, 
-    ConfigurationException
 };
 use PHPUnit\Framework\TestCase;
 
@@ -26,30 +22,6 @@ class ExceptionTest extends TestCase
     protected function tearDown(): void
     {
         restore_exception_handler();
-    }
-
-    public function testDBException()
-    {
-        $this->expectException(DBException::class);
-        throw new DBException("Some message");
-    }
-
-    public function testConfigurationException()
-    {
-        $this->expectException(ConfigurationException::class);
-        throw new ConfigurationException("Some message");
-    }
-
-    public function testDatabaseException()
-    {
-        $this->expectException(DatabaseException::class);
-        throw new DatabaseException("Some message");
-    }
-
-    public function testEnvironmentException()
-    {
-        $this->expectException(EnvironmentException::class);
-        throw new EnvironmentException("Some message");
     }
 
     public function testLogicException()
@@ -62,12 +34,6 @@ class ExceptionTest extends TestCase
     {
         $this->expectException(NotFoundException::class);
         throw new NotFoundException("Some message");
-    }
-
-    public function testRequestException()
-    {
-        $this->expectException(RequestException::class);
-        throw new RequestException("Some message");
     }
 
     public function testRouterException()
