@@ -12,9 +12,6 @@ namespace Rudra\Exceptions;
 use Rudra\Exceptions\ExceptionInterface;
 
 /**
- * MiddlewareException
- * ===================
- *
  * An exception that is thrown when a middleware-related error occurs,
  * such as an invalid format, missing class, or incorrect parameters.
  *
@@ -28,12 +25,7 @@ use Rudra\Exceptions\ExceptionInterface;
  * and not runtime behavior.
  *
  * This exception implements ExceptionInterface for unified filtering and catching across the framework.
- *
- * @package Rudra\Exceptions
- * ----------------------------------------------------------------------------
- * MiddlewareException
- * ===================
- *
+ * ---------------------
  * Исключение, выбрасываемое при возникновении ошибки, связанной с middleware, например:
  * - Неверный формат middleware
  * - Отсутствующий или неназванный класс middleware
@@ -48,7 +40,5 @@ use Rudra\Exceptions\ExceptionInterface;
  * а не с состоянием среды выполнения.
  *
  * Реализует ExceptionInterface для унифицированной обработки всех исключений в рамках фреймворка.
- *
- * @package Rudra\Exceptions
  */
 class MiddlewareException extends LogicException implements ExceptionInterface {}

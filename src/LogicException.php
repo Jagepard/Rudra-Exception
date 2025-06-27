@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
+namespace Rudra\Exceptions;
+
 /**
- * LogicException
- * ==============
- *
  * An exception that indicates errors in the program logic.
  * This type of exception should lead directly to code fixes — these are not runtime issues,
  * but problems in implementation, configuration or incorrect use of the API.
@@ -19,12 +18,7 @@ declare(strict_types=1);
  *     throw new \Rudra\Exceptions\RouterException("503");
  * }
  * ```
- *
- * @package Rudra\Exceptions
- * ----------------------------------------------------------------------------
- * LogicException
- * ==============
- *
+ * ---------------------
  * Исключение, указывающее на ошибки логики программы.
  * Такие ошибки должны приводить к исправлениям в коде — это не ошибки времени выполнения,
  * а проблемы реализации, конфигурации или неверного использования API.
@@ -38,10 +32,5 @@ declare(strict_types=1);
  *     throw new \Rudra\Exceptions\RouterException("503");
  * }
  * ```
- *
- * @package Rudra\Exceptions
  */
-
-namespace Rudra\Exceptions;
-
 class LogicException extends RudraException implements ExceptionInterface {}

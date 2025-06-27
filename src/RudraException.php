@@ -12,9 +12,6 @@ namespace Rudra\Exceptions;
 use RuntimeException;
 
 /**
- * RudraException
- * ==============
- *
  * Base exception class for all exceptions thrown by the Rudra framework.
  * This class serves as the root of the exception hierarchy and implements ExceptionInterface.
  *
@@ -33,12 +30,7 @@ use RuntimeException;
  *     // Handle any Rudra-related exception uniformly
  * }
  * ```
- *
- * @package Rudra\Exceptions
- * ----------------------------------------------------------------------------
- * RudraException
- * ==============
- *
+ * ---------------------
  * Базовый класс исключений для всех ошибок, генерируемых фреймворком Rudra.
  * Этот класс служит корневым элементом иерархии исключений и реализует ExceptionInterface.
  *
@@ -58,8 +50,6 @@ use RuntimeException;
  *     // Единым образом обрабатываем любые исключения Rudra
  * }
  * ```
- *
- * @package Rudra\Exceptions
  */
 class RudraException extends RuntimeException implements ExceptionInterface
 {
