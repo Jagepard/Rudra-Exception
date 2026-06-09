@@ -17,4 +17,3 @@ if (!function_exists('abort')) {
         throw new RouterException($code);
     }
 }
-
