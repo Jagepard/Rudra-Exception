@@ -37,6 +37,13 @@ class RouterException extends RudraException
      */
     public function exception_handler(Throwable $exception): void
     {
+        if (Rudra::config()->get("environment") === "development") {
+            $debugbar = Rudra::get("debugbar");
+            if ($debugbar && $debugbar->hasCollector('exceptions')) {
+                $debugbar['exceptions']->addException($exception);
+            }
+        }
+
         Redirect::responseCode($exception->getCode());
         Router::directCall(Rudra::config()->get("http.errors")[$exception->getCode()]);
     }

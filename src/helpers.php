@@ -12,8 +12,8 @@
 use Rudra\Exceptions\RouterException;
 
 if (!function_exists('abort')) {
-    function abort(int $code): void
+    function abort(int $code, string $message = ''): void
     {
-        throw new RouterException($code);
+        throw new RouterException($message ?: "HTTP Error {$code}", $code);
     }
 }
