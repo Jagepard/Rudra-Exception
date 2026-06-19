@@ -5,9 +5,52 @@
 -----
 
 # Rudra-Exception | [API](https://github.com/Jagepard/Rudra-Exception/blob/master/docs.md "Documentation API")
-#### Установка / Install
-```composer require rudra/exception```
+#### Install
+```bash
+composer require rudra/exception
+```
+#### Usage
+##### Throwing HTTP Errors
+```php
+// Using abort() helper
+abort(404);
+abort(500, "Internal Server Error");
 
+// Or directly
+throw new RouterException("Not Found", 404);
+throw new NotFoundException("Resource not found");
+throw new LogicException("Invalid configuration");
+```
+#### Exception Hierarchy
+```text
+Throwable
+└── RuntimeException
+    └── RudraException
+        ├── RouterException
+        ├── LogicException
+        │   └── MiddlewareException
+        ├── NotFoundException
+        └── RuntimeException
+```
+#### Configuration
+##### Error Pages
+Configure error handlers in your ```setting.{$env}.yml```:
+```yml
+http.errors:
+    404:
+        controller: App\Ship\Errors\Controller\HttpErrorsController 
+        action: error404
+    503:
+        controller: App\Ship\Errors\Controller\HttpErrorsController
+        action: error503
+```
+#### DebugBar Integration
+In development mode, exceptions are automatically logged to DebugBar:
+```php
+if (Rudra::config()->get("environment") === "development") {
+    $debugbar->addCollector(new DebugBar\DataCollector\ExceptionsCollector());
+}
+```
 ## License
 
 This project is licensed under the **Mozilla Public License 2.0 (MPL-2.0)** — a free, open-source license that:
@@ -19,13 +62,3 @@ This project is licensed under the **Mozilla Public License 2.0 (MPL-2.0)** — 
 
 📄 Full license text: [LICENSE](./LICENSE)  
 🌐 Official MPL-2.0 page: https://mozilla.org/MPL/2.0/
-
---------------------------
-Проект распространяется под лицензией **Mozilla Public License 2.0 (MPL-2.0)**. Это означает:
- - Вы можете свободно использовать, изменять и распространять код.
- - При изменении файлов, содержащих исходный код из этого репозитория, вы обязаны оставить их открытыми под той же лицензией.
- - Вы **обязаны сохранять уведомления об авторстве** и ссылку на оригинал.
- - Вы можете встраивать код в проприетарные проекты, если исходные файлы остаются под MPL.
-
-📄  Полный текст лицензии (на английском): [LICENSE](./LICENSE)  
-🌐 Официальная страница: https://mozilla.org/MPL/2.0/

@@ -8,20 +8,17 @@
  * @author  Korotkov Danila (Jagepard) <jagepard@yandex.ru>
  * @license https://mozilla.org/MPL/2.0/  MPL-2.0
  * 
- * phpunit src/tests/ContainerTest --coverage-html src/tests/coverage-html
+ * phpunit src/tests/ExceptionTest --coverage-html src/tests/coverage-html
  */
 
-use Rudra\Exceptions\{
-    LogicException, 
-    RudraException, 
-    RouterException,
-    RuntimeException, 
-    NotFoundException, 
-    MiddlewareException, 
-};
-use PHPUnit\Framework\TestCase;
+use Rudra\Exceptions\LogicException;
+use Rudra\Exceptions\RudraException;
+use Rudra\Exceptions\RouterException;
+use Rudra\Exceptions\RuntimeException;
+use Rudra\Exceptions\NotFoundException;
+use Rudra\Exceptions\MiddlewareException;
 
-class ExceptionTest extends TestCase
+class ExceptionTest extends \PHPUnit\Framework\TestCase
 {
     protected function tearDown(): void
     {
