@@ -16,4 +16,6 @@ namespace Rudra\Exceptions;
  * This type of exception should lead directly to code fixes — these are not runtime issues,
  * but problems in implementation, configuration or incorrect use of the API.
  */
-class LogicException extends RudraException implements ExceptionInterface {}
+class LogicException extends RudraException implements ExceptionInterface 
+{
+}

@@ -15,4 +15,6 @@ namespace Rudra\Exceptions;
  * Custom exception class for handling "Not Found" errors.
  * This exception is typically thrown when a requested resource, service, or data is not found.
  */
-class NotFoundException extends RudraException {}
+class NotFoundException extends RudraException 
+{
+}
