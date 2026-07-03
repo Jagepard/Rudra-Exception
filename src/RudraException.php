@@ -17,4 +17,6 @@ use RuntimeException;
  * Base exception class for all exceptions thrown by the Rudra framework.
  * This class serves as the root of the exception hierarchy and implements ExceptionInterface.
  */
-class RudraException extends RuntimeException implements ExceptionInterface {}
+class RudraException extends RuntimeException implements ExceptionInterface 
+{
+}

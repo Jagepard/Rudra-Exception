@@ -15,4 +15,6 @@ namespace Rudra\Exceptions;
  * An exception that is thrown when a middleware-related error occurs,
  * such as an invalid format, missing class, or incorrect parameters.
  */
-class MiddlewareException extends LogicException {}
+class MiddlewareException extends LogicException 
+{
+}

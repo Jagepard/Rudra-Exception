@@ -15,4 +15,6 @@ namespace Rudra\Exceptions;
  * For errors that occur during execution, and depend on external factors
  * (e.g. file not found, no write permissions, DB error, etc.)
  */
-class RuntimeException extends RudraException {}
+class RuntimeException extends RudraException 
+{
+}
