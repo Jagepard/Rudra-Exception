@@ -45,6 +45,6 @@ class RouterException extends RudraException
         }
 
         Redirect::responseCode($exception->getCode());
-        Router::directCall(Rudra::config()->get("http.errors")[$exception->getCode()]);
+        Router::directCall(Rudra::config()->get("http_errors")[$exception->getCode()]);
     }
 }
