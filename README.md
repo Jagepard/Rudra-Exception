@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/Jagepard/Rudra-Exception/badge.svg?branch=master)](https://coveralls.io/github/Jagepard/Rudra-Exception?branch=master)
 -----
 
-# Rudra-Exception | [API](https://github.com/Jagepard/Rudra-Exception/blob/master/docs.md "Documentation API")
+# Rudra-Exception | [API](https://github.com/Jagepard/Rudra-Exception/blob/master/docs.md 'Documentation API')
 #### Install
 ```bash
 composer require rudra/exception
@@ -14,12 +14,12 @@ composer require rudra/exception
 ```php
 // Using abort() helper
 abort(404);
-abort(500, "Internal Server Error");
+abort(500, 'Internal Server Error');
 
 // Or directly
-throw new RouterException("Not Found", 404);
-throw new NotFoundException("Resource not found");
-throw new LogicException("Invalid configuration");
+throw new RouterException('Not Found', 404);
+throw new NotFoundException('Resource not found');
+throw new LogicException('Invalid configuration');
 ```
 #### Exception Hierarchy
 ```text
@@ -47,7 +47,7 @@ http.errors:
 #### DebugBar Integration
 In development mode, exceptions are automatically logged to DebugBar:
 ```php
-if (Rudra::config()->get("environment") === "development") {
+if (Rudra::config()->get('environment') === 'development') {
     $debugbar->addCollector(new DebugBar\DataCollector\ExceptionsCollector());
 }
 ```
