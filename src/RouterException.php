@@ -25,7 +25,7 @@ class RouterException extends RudraException
     /**
      * Constructs a new RouterException and sets a global exception handler.
      */
-    public function __construct(string $message = "", int $code = 0, ?Throwable $previous = null)
+    public function __construct(string $message = '', int $code = 0, ?Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
         @set_exception_handler([$this, 'exception_handler']);
@@ -37,14 +37,14 @@ class RouterException extends RudraException
      */
     public function exception_handler(Throwable $exception): void
     {
-        if (Rudra::config()->get("environment") === "development") {
-            $debugbar = Rudra::get("debugbar");
+        if (Rudra::config()->get('environment') === 'development') {
+            $debugbar = Rudra::get('debugbar');
             if ($debugbar && $debugbar->hasCollector('exceptions')) {
                 $debugbar['exceptions']->addException($exception);
             }
         }
 
         Redirect::responseCode($exception->getCode());
-        Router::directCall(Rudra::config()->get("http_errors")[$exception->getCode()]);
+        Router::directCall(Rudra::config()->get('http_errors')[$exception->getCode()]);
     }
 }
